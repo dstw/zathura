@@ -1,0 +1,17 @@
+language: c
+
+os:
+  - linux
+
+before_install:
+  - sudo apt-get update -y
+  - sudo apt-get install -y meson
+
+install:
+  - meson build
+  - cd build
+  - ninja
+  - sudo ninja install
+
+script:
+  - test -e /usr/local/bin/zathura
